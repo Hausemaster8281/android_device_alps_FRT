@@ -1,0 +1,5 @@
+on fs
+    # mount elabel
+    wait /dev/block/by-name/elabel
+    mount ext4 /dev/block/by-name/elabel /vendor/elabel noatime nosuid nodev barrier=1 context=u:object_r:fih_elabel_data_file:s0
+    chown system system /vendor/elabel

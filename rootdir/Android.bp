@@ -1,0 +1,259 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Init scripts
+// Init configuration files
+prebuilt_etc {
+    name: "factory_init.connectivity.rc",
+    src: "etc/factory_init.connectivity.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "factory_init.project.rc",
+    src: "etc/factory_init.project.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "factory_init.rc",
+    src: "etc/factory_init.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "factory_init.usb.rc",
+    src: "etc/factory_init.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.aee.rc",
+    src: "etc/init.aee.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.ago.rc",
+    src: "etc/init.ago.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.connectivity.rc",
+    src: "etc/init.connectivity.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.fih.elabel.rc",
+    src: "etc/init.fih.elabel.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.fver.rc",
+    src: "etc/init.fver.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.modem.rc",
+    src: "etc/init.modem.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt6735.rc",
+    src: "etc/init.mt6735.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.mt6735.usb.rc",
+    src: "etc/init.mt6735.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.project.rc",
+    src: "etc/init.project.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sensor_1_0.rc",
+    src: "etc/init.sensor_1_0.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600ID.FRT.1.rc",
+    src: "etc/init.sku.600ID.FRT.1.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600ID.FRT.2.rc",
+    src: "etc/init.sku.600ID.FRT.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600ID.rc",
+    src: "etc/init.sku.600ID.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600RU.FRT.1.rc",
+    src: "etc/init.sku.600RU.FRT.1.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600RU.FRT.2.rc",
+    src: "etc/init.sku.600RU.FRT.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600RU.rc",
+    src: "etc/init.sku.600RU.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600WW.FRT.1.rc",
+    src: "etc/init.sku.600WW.FRT.1.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600WW.FRT.2.rc",
+    src: "etc/init.sku.600WW.FRT.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600WW.RTI.2.rc",
+    src: "etc/init.sku.600WW.RTI.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600WW.RTL.1.rc",
+    src: "etc/init.sku.600WW.RTL.1.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.600WW.RTL.2.rc",
+    src: "etc/init.sku.600WW.RTL.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.62GMX.RTL.1.rc",
+    src: "etc/init.sku.62GMX.RTL.1.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.62GMX.RTL.2.rc",
+    src: "etc/init.sku.62GMX.RTL.2.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.62GMX.rc",
+    src: "etc/init.sku.62GMX.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.sku.rc",
+    src: "etc/init.sku.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "meta_init.connectivity.rc",
+    src: "etc/meta_init.connectivity.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "meta_init.modem.rc",
+    src: "etc/meta_init.modem.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "meta_init.project.rc",
+    src: "etc/meta_init.project.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "meta_init.rc",
+    src: "etc/meta_init.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "meta_init.usb.rc",
+    src: "etc/meta_init.usb.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "multi_init.rc",
+    src: "etc/multi_init.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}
+
+// fstab
+prebuilt_etc {
+    name: "fstab.enableswap",
+    src: "etc/fstab.enableswap",
+    vendor: true,
+}

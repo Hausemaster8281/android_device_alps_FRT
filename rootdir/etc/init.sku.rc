@@ -1,0 +1,14 @@
+on fs
+    setprop ro.sf.lcd_density 240
+    setprop ro.product.vendor.device FRT
+    setprop ro.product.vendor.brand Nokia
+    setprop persist.vendor.anr.enhancement 0
+    setprop ro.product.vendor.model "Nokia 1"
+    setprop ro.vendor.mtk_bg_power_saving_ui 0
+    setprop ro.com.android.prov_mobiledata false
+    setprop ro.product.vendor.name Frontier_00WW
+    setprop ro.vendor.mtk_bg_power_saving_support 0
+    setprop ro.product.vendor.manufacturer "HMD Global"
+on fs
+	setprop ro.vendor.build.fingerprint Nokia/Frontier_00WW/FRT:10/QP1A.190711.020/00WW_3_11D:user/release-keys
+	setprop ro.odm.build.fingerprint Nokia/Frontier_00WW/FRT:10/QP1A.190711.020/00WW_3_11D:user/release-keys

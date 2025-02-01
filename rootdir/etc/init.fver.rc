@@ -1,0 +1,8 @@
+
+service csys_service_fver /vendor/bin/csys_service_fver
+    user root
+    group root
+    class main
+    oneshot
+
+

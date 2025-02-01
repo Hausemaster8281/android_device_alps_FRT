@@ -1,0 +1,135 @@
+# MTK project .rc configure
+
+#fver
+import /vendor/etc/init/hw/init.fver.rc
+
+#elabel
+import /vendor/etc/init/hw/init.fih.elabel.rc
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+    mkdir /data/vendor/misc 0771 system system
+    mkdir /data/vendor/misc/touch 0771 system system
+
+
+#   insmod /vendor/lib/modules/mtk_hif_sdio.ko
+#   insmod /vendor/lib/modules/mtk_stp_wmt.ko
+#   insmod /vendor/lib/modules/mtk_stp_uart.ko
+#   insmod /vendor/lib/modules/mtk_stp_gps.ko
+#   insmod /vendor/lib/modules/mtk_stp_bt.ko
+#   insmod /vendor/lib/modules/mtk_fm_drv.ko
+#   insmod /vendor/lib/modules/mtk_wmt_wifi.ko
+
+
+
+
+
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/AD5820AF
+    chown system camera /dev/AD5820AF
+
+	chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+
+#goodix tp firmware
+    chown system system /proc/tp_fw_ver
+    chmod 0660 /proc/tp_fw_ver
+
+#   insmod /vendor/lib/modules/wlan_mt.ko
+
+
+
+
+    chmod 0666 /dev/exm0
+
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+#System memory cgroup
+   #write /dev/memcg/system/memory.soft_limit_in_bytes 104857600
+
+#CPU & GPU boost
+on property:sys.shutdown.requested=*
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+   write /proc/fliperfs/perf 1
+   write /proc/gpufreq/gpufreq_opp_freq "549250"
+
+on charger
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
+   write /proc/fliperfs/perf 2
+  write /proc/gpufreq/gpufreq_opp_freq "299000"
+
+on early-init
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+   write /proc/fliperfs/perf 1
+   write /proc/gpufreq/gpufreq_opp_freq "549250"
+
+on property:sys.boot_completed=1
+   write /sys/module/lowmemorykiller/parameters/adj "0,100,200,300,900,906"
+   write /sys/module/lowmemorykiller/parameters/minfree "9216,12288,15360,18432,51200,74240"
+   write /proc/gpufreq/gpufreq_opp_freq "0"
+
+#only framework is avaialable to access because of selinux
+on property:sys.boost.enable=1
+   write /sys/devices/system/cpu/cpu0/online  1
+   write /sys/devices/system/cpu/cpu1/online  1
+   write /sys/devices/system/cpu/cpu2/online  1
+   write /sys/devices/system/cpu/cpu3/online  1
+   write /proc/gpufreq/gpufreq_opp_freq "549250"
+
+on property:sys.boost.enable=0
+   write /proc/gpufreq/gpufreq_opp_freq "0"
+
+on property:sys.performance.enable=1
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
+   write /proc/gpufreq/gpufreq_opp_freq "549250"
+   write /proc/fliperfs/perf 1
+
+on property:sys.performance.enable=0
+   write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
+   write /proc/gpufreq/gpufreq_opp_freq "0"
+   write /proc/fliperfs/perf 2
+
+#SYS initial settings
+on fs
+    write /proc/sys/vm/min_free_kbytes 2803
+
+#add by EddieKHChang for app-overlay(overlay apk) 20190212 B 
+import init.fih.app_overlay.rc
+#add by EddieKHChang for app-overlay(overlay apk) 20190212 E
