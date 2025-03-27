@@ -67,6 +67,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
+
 # Radio
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5 \

@@ -6,7 +6,13 @@
 
 DEVICE_PATH := device/alps/FRT
 
-# Architecture
+# Build Broken Rules
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+
+# Architecture (32-bit for Nokia 1)
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
@@ -14,134 +20,85 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 
-#TARGET_USES_64_BIT_BINDER := true
-
-# APEX
-OVERRIDE_TARGET_FLATTEN_APEX := true
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := FRT
 TARGET_NO_BOOTLOADER := true
+
+# Boot Image
+BOARD_BOOTIMG_HEADER_VERSION := 2
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 buildvariant=user selinux=permissive
+BOARD_KERNEL_BASE := 0x40000000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x04000000
+BOARD_KERNEL_TAGS_OFFSET := 0xE000000
+BOARD_DTB_OFFSET := 0x00000000  # Not specified in the original command, so using a default
+BOARD_KERNEL_PAGESIZE := 2048   # Typical default, adjust if different
+BOARD_BOOTIMG_HEADER_VERSION := 2  # Typical for modern Android devices, verify your specific device
+
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE)
+BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
+BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # Display
 TARGET_SCREEN_DENSITY := 240
 
 # Kernel
-BOARD_BOOTIMG_HEADER_VERSION := 2
-BOARD_KERNEL_BASE := 0x40000000
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 buildvariant=user selinux=permissive
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-
-# Kernel - prebuilt
-TARGET_FORCE_PREBUILT_KERNEL := true
-ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
-BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := 
-endif
-
-# Output Paths
-TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_ODM := odm
-TARGET_COPY_OUT_RECOVERY := recovery
+TARGET_KERNEL_ARCH := arm
+TARGET_KERNEL_HEADER_ARCH := arm
+# Use Prebuilt Kernel
+TARGET_NO_KERNEL := true
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage-dtb
+# Partitions
+BOARD_FLASH_BLOCK_SIZE := 131072  # (128KB)
 
 # Partition Sizes
-# Partition alignment
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216        # 16MB
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1634066432    # Aligned to 16MB
 BOARD_VENDORIMAGE_PARTITION_SIZE := 335544320     # Aligned to 16MB
-BOARD_DATAIMAGE_PARTITION_SIZE := 5474615296  # Aligned to 16MB
-BOARD_ODMIMAGE_PARTITION_SIZE := 1998848
+BOARD_DATAIMAGE_PARTITION_SIZE := 5474615296      # Aligned to 16MB
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 17936384
-BOARD_CACHEIMAGE_PARTITION_SIZE := 159383552
 
 # Filesystem Types
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_DATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_RECOVERYIMAGE_FILE_SYSTEM_TYPE := ext4
 
-# Flash Block Size
-BOARD_FLASH_BLOCK_SIZE := 131072  # (128KB)
-# OTA Assert
-TARGET_OTA_ASSERT_DEVICE := FRT
+TARGET_COPY_OUT_VENDOR := vendor
 
-# Block-based OTA
-TARGET_USES_BLOCK_BASED_OTA := false
-
-# Exclude block devices that don't need to be included in block-based OTA
-TARGET_SKIP_OTA_PACKAGE := false
-BOARD_USES_FULL_RECOVERY_IMAGE := true
-
-
-# AVB Configuration
-# Disable AVB
-BOARD_AVB_ENABLE := false  # Disable AVB (since your device doesn't require it)
-BOARD_AVB_ALGORITHM := SHA256_RSA4096  # Keep this for consistency if you need it later (but will not be used if AVB is disabled)
-BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem  # Optional, only if needed for other purposes
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem  # Optional
-
-# Disable vbmeta image generation
-BOARD_HAS_VBMETA := false  # Disable the vbmeta image creation
-BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096  # Optional, if needed for consistency
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-
-
-# Platform Configuration
+# Platform
 TARGET_BOARD_PLATFORM := mt6737m
 BOARD_HAS_MTK_HARDWARE := true
 
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
+
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
-
+BOARD_BUILD_ODMIMAGE := true
 # Recovery
-BOARD_USES_RECOVERY_AS_BOOT := false
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.enableswap
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6737m
+TARGET_USERIMAGES_USE_EXT4 := true
+#TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
-# Security patch level
-VENDOR_SECURITY_PATCH := 2021-04-05
-
-# Device-specific module handling
+# SELinux
+#BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+#SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Verified Boot
+BOARD_AVB_ENABLE := false  # Disable for older devices
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
-# VINTF
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+# Security Patch
+VENDOR_SECURITY_PATCH := 2021-04-05
 
-# Inherit the proprietary files
+# Inherit vendor
 include vendor/alps/FRT/BoardConfigVendor.mk
-# Package Configuration
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := $(DEVICE_PATH)/releasetools/ota_from_target_files.py
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-TARGET_NO_RECOVERY := false
-
-# Additional Build Configs
-BUILD_BROKEN_DUP_RULES := true
-BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
-BUILD_BROKEN_PREBUILT_ELF_FILES := true
-BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true
-BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
-
-DISABLE_SELINUX := true
-TARGET_NO_NEVERALLOW := true
-BUILD_BROKEN_SEPOLICY := true
-SELINUX_IGNORE_FAILURE := true
-SELINUX_IGNORE_NEVERALLOWS := true
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
-BOARD_VINTF_ENFORCEMENT := false
-BOARD_FCM_VERSION := 2
-PRODUCT_ENFORCE_VINTF_MANIFEST := false
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/device_framework_matrix.xml
-BOARD_VNDK_VERSION := current
-BOARD_VINTF_OVERRIDE := true
-TARGET_OTA_IGNORE_VINTF := true
