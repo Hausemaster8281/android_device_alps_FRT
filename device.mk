@@ -80,7 +80,14 @@ PRODUCT_PACKAGES += \
     fstab.enableswap \
     init.mt6735.rc \
     init.mt6735.usb.rc \
-    init.project.rc
+    init.project.rc \
+    fstab.mt6735 \
+    init.connectivity.rc \
+    init.modem.rc \
+    init.mt6735.rc \
+    init.mt6735.usb.rc \
+    init.project.rc \
+    init.sensor_1_0.rc
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

@@ -28,5 +28,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildFingerprint="Nokia/FRT_00WW/FRT:10/QP1A.190711.020/00WW_3_11D:user/release-keys" \
     SystemName=$(PRODUCT_SYSTEM_NAME) \
     SystemModel=$(PRODUCT_SYSTEM_DEVICE) \
-    DeviceProduct=$(PRODUCT_SYSTEM_NAME)
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME) \
     ProductModel=$(PRODUCT_SYSTEM_DEVICE)
