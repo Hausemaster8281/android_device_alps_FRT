@@ -20,7 +20,7 @@ $(call inherit-product, vendor/alps/FRT/FRT-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # API level
-PRODUCT_SHIPPING_API_LEVEL := 27
+PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Audio
 PRODUCT_PACKAGES += \

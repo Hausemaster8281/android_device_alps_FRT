@@ -1,4 +1,4 @@
-<manifest version="1.0" type="device" target-level="3">
+<manifest version="2.0" type="device" target-level="4">
     <!-- Required for all devices -->
     <hal format="hidl">
         <name>android.hardware.health</name>
@@ -154,19 +154,12 @@
         <fqname>@1.2::IMediaCasService/default</fqname>
         <version>1.2</version>
     </hal>
-
+    <kernel target-level="4" />
     <!-- SE Policy version -->
-    <sepolicy>
-        <version>27.0</version>
-    </sepolicy>
-
-    <!-- Vendor NDK version -->
     <vendor-ndk>
-        <version>27</version>
+        <version>29</version>    <!-- Vendor was upgraded to Android 10 -->
     </vendor-ndk>
-
-    <!-- System SDK version -->
     <system-sdk>
-        <version>27</version>
+        <version>29</version>    <!-- Optional: Only if system blobs were updated -->
     </system-sdk>
 </manifest>

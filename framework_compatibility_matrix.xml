@@ -176,15 +176,28 @@
     </hal>
 
     <!-- Kernel requirements -->
-    <kernel version="3.18">
+    <!-- Correct kernel declaration for 4.9-q branch (FCM4) -->
+    <kernel version="4.9.188"> <!-- Minimum required version for FCM4 -->
         <config>
             <key>CONFIG_ANDROID</key>
             <value type="tristate">y</value>
         </config>
-    </kernel>
 
-    <!-- SE Policy version -->
+        <!-- Add ALL required kernel configs from FCM4's 4.9-q branch -->
+        <!-- Example additions (replace with actual requirements): -->
+        <config>
+            <key>CONFIG_CGROUP_SCHED</key>
+            <value type="tristate">y</value>
+        </config>
+        <config>
+            <key>CONFIG_ANDROID_PARANOID_NETWORK</key>
+            <value type="tristate">y</value>
+        </config>
+        <!-- ... (add all mandatory entries) -->
+    </kernel>
     <sepolicy>
-        <version>27.0</version>
-    </sepolicy>
+            <kernel-sepolicy-version>30</kernel-sepolicy-version>  <!-- Kernel policy version from your kernel (e.g., security_policyvers() output) -->
+            <version>29.0</version>  <!-- Framework SEPolicy version (e.g., Android 10/Q) -->
+        </sepolicy>
+<!-- Example for Android 10/Q (FCM4): -->
 </compatibility-matrix>
