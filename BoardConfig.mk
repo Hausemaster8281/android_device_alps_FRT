@@ -37,7 +37,6 @@ BOARD_KERNEL_TAGS_OFFSET := 0xE000000
 BOARD_DTB_OFFSET := 0x0e000000
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-BOARD_KERNEL_SEPARATED_DTBO := true
 
 BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
@@ -71,7 +70,11 @@ endif
 # DTBO image for devices with separate DTBO partition
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/dtbo/dtbo.img
-TARGET_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo/dtbo.img
+INSTALLED_DTBOIMAGE_TARGET := $(PRODUCT_OUT)/dtbo.img
+
+$(INSTALLED_DTBOIMAGE_TARGET): $(DEVICE_PATH)/dtbo/dtbo.img
+	@echo "Using prebuilt dtbo.img"
+	cp -f $< $@
 
 
 # Partitions
