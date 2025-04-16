@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
     init.mt6735.rc \
     init.mt6735.usb.rc \
     init.project.rc \
-    fstab.mt6735 \
+    fstab.mt6735m \
     init.connectivity.rc \
     init.modem.rc \
     init.mt6735.rc \
