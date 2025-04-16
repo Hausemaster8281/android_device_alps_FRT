@@ -61,6 +61,11 @@ ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
     TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage-dtb
     BOARD_KERNEL_IMAGE_NAME := zImage-dtb
     BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
+    # Fake install dtb.img to prevent build failure
+    INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
+    PRODUCT_COPY_FILES += \
+        $(DEVICE_PATH)/prebuilts/dtb.img:dtb.img
 endif
 
 # DTBO image for devices with separate DTBO partition
