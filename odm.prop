@@ -14,7 +14,7 @@ ro.odm.build.tags=release-keys
 #ro.odm.build.version.sdk=29
 ro.odm.product.odm.brand=Nokia
 #ro.product.odm.manufacturer=HMD Global
-ro.product.odm.model=Nokia 1
+#ro.product.odm.model=Nokia 1
 #ro.product.odm.name=Frontier_00WW
 # end common build properties
 

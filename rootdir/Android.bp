@@ -257,3 +257,9 @@ prebuilt_etc {
     src: "etc/fstab.enableswap",
     vendor: true,
 }
+prebuilt_etc {
+    name: "fstab.mt6735m",
+    src: "etc/fstab.mt6735m",
+    vendor: true,
+    ramdisk_available: true,
+}
