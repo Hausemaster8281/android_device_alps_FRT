@@ -70,11 +70,9 @@ endif
 # DTBO image for devices with separate DTBO partition
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/dtbo/dtbo.img
-#INSTALLED_DTBOIMAGE_TARGET := $(PRODUCT_OUT)/dtbo.img
-
-#$(INSTALLED_DTBOIMAGE_TARGET): $(DEVICE_PATH)/dtbo/dtbo.img
-#	@echo "Using prebuilt dtbo.img"
-#	cp -f $< $@
+INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtbo.img
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/prebuilts/dtbo.img:dtbo.img
 
 
 # Partitions
