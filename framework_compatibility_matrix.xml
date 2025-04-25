@@ -1,5 +1,5 @@
-<compatibility-matrix version="2.0" type="framework">
-    <!-- Updated Audio HALs to match manifest -->
+<compatibility-matrix version="1.0" type="framework" level="5">
+    <!-- Audio HALs -->
     <hal format="hidl" optional="true">
         <name>android.hardware.audio</name>
         <version>7.0</version>
@@ -16,8 +16,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-
-    <!-- Updated Bluetooth HALs -->
+    <!-- Bluetooth HALs -->
     <hal format="hidl" optional="true">
         <name>android.hardware.bluetooth</name>
         <version>1.1</version>
@@ -26,6 +25,7 @@
             <instance>default</instance>
         </interface>
     </hal>
+
     <hal format="hidl" optional="true">
         <name>android.hardware.bluetooth.audio</name>
         <version>2.1</version>
@@ -35,7 +35,7 @@
         </interface>
     </hal>
 
-    <!-- Updated Camera HAL -->
+    <!-- Camera HAL -->
     <hal format="hidl" optional="true">
         <name>android.hardware.camera.provider</name>
         <version>2.5</version>
@@ -45,25 +45,23 @@
         </interface>
     </hal>
 
-    <!-- Updated DRM HAL -->
+    <!-- DRM HAL -->
     <hal format="hidl" optional="true">
         <name>android.hardware.drm</name>
         <version>1.3</version>
         <interface>
             <name>ICryptoFactory</name>
-            <instance>default</instance>
             <instance>clearkey</instance>
             <instance>widevine</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
-            <instance>default</instance>
             <instance>clearkey</instance>
             <instance>widevine</instance>
         </interface>
     </hal>
 
-    <!-- Updated Graphics HALs -->
+    <!-- Graphics -->
     <hal format="hidl" optional="true">
         <name>android.hardware.graphics.composer</name>
         <version>2.2</version>
@@ -73,30 +71,7 @@
         </interface>
     </hal>
 
-    <!-- Updated Radio HAL -->
-    <hal format="hidl" optional="true">
-        <name>android.hardware.radio</name>
-        <version>1.5</version>
-        <interface>
-            <name>IRadio</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-            <instance>em1</instance>
-            <instance>em2</instance>
-            <instance>imsAospSlot1</instance>
-            <instance>imsAospSlot2</instance>
-            <instance>se1</instance>
-            <instance>se2</instance>
-        </interface>
-        <interface>
-            <name>ISap</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-            <instance>slot3</instance>
-        </interface>
-    </hal>
-
-    <!-- Updated Sensors HAL -->
+    <!-- Sensors -->
     <hal format="hidl" optional="true">
         <name>android.hardware.sensors</name>
         <version>2.1</version>
@@ -106,7 +81,7 @@
         </interface>
     </hal>
 
-    <!-- Updated USB HAL -->
+    <!-- USB -->
     <hal format="hidl" optional="true">
         <name>android.hardware.usb</name>
         <version>1.2</version>
@@ -116,7 +91,7 @@
         </interface>
     </hal>
 
-    <!-- Updated WiFi HALs -->
+    <!-- WiFi -->
     <hal format="hidl" optional="true">
         <name>android.hardware.wifi</name>
         <version>1.4</version>
@@ -125,6 +100,7 @@
             <instance>default</instance>
         </interface>
     </hal>
+
     <hal format="hidl" optional="true">
         <name>android.hardware.wifi.hostapd</name>
         <version>1.2</version>
@@ -133,25 +109,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+
     <hal format="hidl" optional="true">
         <name>android.hardware.wifi.supplicant</name>
         <version>1.3</version>
         <interface>
             <name>ISupplicant</name>
             <instance>default</instance>
-        </interface>
-    </hal>
-
-    <!-- MediaTek specific HALs -->
-    <hal format="hidl" optional="true">
-        <name>vendor.mediatek.hardware.mtkradioex</name>
-        <version>1.6</version>
-        <interface>
-            <name>IMtkRadioEx</name>
-            <instance>mtkSlot1</instance>
-            <instance>mtkSlot2</instance>
-            <instance>imsSlot1</instance>
-            <instance>imsSlot2</instance>
         </interface>
     </hal>
 
@@ -165,7 +129,25 @@
         </interface>
     </hal>
 
-    <!-- Health HAL (required) -->
+    <!-- Health HAL -->
+    <hal format="hidl" optional="false">
+        <name>android.hardware.health</name>
+        <version>2.1</version>
+        <interface>
+            <name>IHealth</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.cas</name>
+        <version>1.2</version>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <!-- Health HAL -->
     <hal format="hidl" optional="false">
         <name>android.hardware.health</name>
         <version>2.1</version>
@@ -175,16 +157,326 @@
         </interface>
     </hal>
 
-    <!-- Kernel requirements -->
-    <!-- Correct kernel declaration for 4.9-q branch (FCM4) -->
-    <kernel version="4.9.188"> <!-- Minimum required version for FCM4 -->
+    <!-- Radio HAL (1.2) -->
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.2</version>
+        <interface>
+            <name>ISap</name>
+            <instance>slot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.2</version>
+        <interface>
+            <name>ISap</name>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.2</version>
+        <interface>
+            <name>ISap</name>
+            <instance>slot3</instance>
+        </interface>
+    </hal>
+
+    <!-- Radio HAL (1.4) -->
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>em1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>em2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>em3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>imsAospSlot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>imsAospSlot2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>imsAospSlot3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>se1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>se2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>se3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>slot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.radio</name>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>slot3</instance>
+        </interface>
+    </hal>
+
+    <!-- Secure Element HAL -->
+    <hal format="hidl" optional="true">
+        <name>android.hardware.secure_element</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISecureElement</name>
+            <instance>SIM1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.secure_element</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISecureElement</name>
+            <instance>eSE1</instance>
+        </interface>
+    </hal>
+
+    <!-- MediaTek RadioEx HAL -->
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>imsSlot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>imsSlot2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>imsSlot3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkAssist1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkAssist2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkAssist3</instance>
+        </interface>
+    </hal>
+
+    <!-- Repeat the same structure for other instances -->
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkCap1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkCap2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkCap3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkEm1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkEm2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkEm3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkRcs1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkRcs2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkRcs3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSe1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSe2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSe3</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSlot1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSlot2</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.mediatek.hardware.mtkradioex</name>
+        <version>1.6</version>
+        <interface>
+            <name>IMtkRadioEx</name>
+            <instance>mtkSlot3</instance>
+        </interface>
+    </hal>
+
+    <!-- Kernel requirements for FCM 5 -->
+    <kernel version="4.9.141">
         <config>
             <key>CONFIG_ANDROID</key>
             <value type="tristate">y</value>
         </config>
-
-        <!-- Add ALL required kernel configs from FCM4's 4.9-q branch -->
-        <!-- Example additions (replace with actual requirements): -->
         <config>
             <key>CONFIG_CGROUP_SCHED</key>
             <value type="tristate">y</value>
@@ -193,11 +485,16 @@
             <key>CONFIG_ANDROID_PARANOID_NETWORK</key>
             <value type="tristate">y</value>
         </config>
-        <!-- ... (add all mandatory entries) -->
+        <!-- Add more FCM5-mandated configs as needed -->
     </kernel>
+
+    <!-- SEPolicy -->
     <sepolicy>
-            <kernel-sepolicy-version>30</kernel-sepolicy-version>  <!-- Kernel policy version from your kernel (e.g., security_policyvers() output) -->
-            <version>29.0</version>  <!-- Framework SEPolicy version (e.g., Android 10/Q) -->
-        </sepolicy>
-<!-- Example for Android 10/Q (FCM4): -->
+        <version>202404</version>
+        <kernel-sepolicy-version>30</kernel-sepolicy-version>
+    </sepolicy>
+    <framework>
+        <version>5.0</version>
+        <!-- Other framework settings -->
+    </framework>
 </compatibility-matrix>
