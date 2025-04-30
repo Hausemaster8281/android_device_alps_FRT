@@ -70,8 +70,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/vintf/manifest.xml:vendor/etc/vintf/manifest.xml
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/vintf/manifest.xml:vendor/etc/vintf/manifest.xml
 
 # Radio
 PRODUCT_PACKAGES += \

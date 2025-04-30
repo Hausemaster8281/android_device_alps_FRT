@@ -6,3 +6,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_FRT.mk
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/prebuilt/zImage-dtb:kernel
