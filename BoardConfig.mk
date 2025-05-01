@@ -60,6 +60,34 @@ TARGET_SCREEN_DENSITY := 240
 # Kernel
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
+#TARGET_FORCE_PREBUILT_KERNEL := false
+
+# Use kernel source
+# Kernel source path
+TARGET_KERNEL_SOURCE := kernel/alps/FRT
+# Defconfig name (must match defconfig file in arch/arm/configs/)
+TARGET_KERNEL_CONFIG := FRT_defconfig
+# Kernel image output name
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+# Use GCC, not Clang
+TARGET_KERNEL_CLANG_COMPILE := false
+# Toolchain path (must end in slash)
+KERNEL_TOOLCHAIN := /media/hausemaster8281/1599b391-ccbc-44f7-827b-1515f7a8a7ab/android/lineage/kernel/alps/FRT/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin
+# Toolchain prefix (no path, just the binary prefix)
+KERNEL_TOOLCHAIN_PREFIX := arm-none-eabi-
+# Tell Soong what prefix to use
+TARGET_KERNEL_TOOLCHAIN := $(KERNEL_TOOLCHAIN)$(KERNEL_TOOLCHAIN_PREFIX)
+
+#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+#    TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage-dtb
+#    BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+#    BOARD_INCLUDE_DTB_IN_BOOTIMG := true#
+#
+#    # Fake install dtb.img to prevent build failure
+#    INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
+#    PRODUCT_COPY_FILES += \
+#        $(DEVICE_PATH)/prebuilts/dtb.img:dtb.img
+#endif
 
 TARGET_FORCE_PREBUILT_KERNEL := true
 
