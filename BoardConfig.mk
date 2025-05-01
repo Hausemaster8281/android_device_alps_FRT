@@ -124,9 +124,7 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_DATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
-BOARD_USES_MICRODROID := false
-BOARD_SUPPORTS_MICRODROID := false
-TARGET_BUILD_MICRODROID := false
+
 
 # Platform
 TARGET_BOARD_PLATFORM := mt6737m
@@ -162,17 +160,6 @@ SELINUX_IGNORE_NEVERALLOWS := true
 # Security Patch
 VENDOR_SECURITY_PATCH := 2021-04-05
 BOARD_SEPOLICY_VERS := 202404
-
-TARGET_BUILD_APPS_MICRODROID := false
-TARGET_BUILD_MICRODROID := false
-
-# Virtualization overrides
-# Disable Microdroid globally
-PRODUCT_BUILD_MICRODROID := false
-PRODUCT_ENABLE_VIRTUALIZATION := false
-PRODUCT_SOONG_NAMESPACES += \
-    packages/modules/Virtualization/microdroid:__override__exclude__
-
 
 # Inherit vendor
 include vendor/alps/FRT/BoardConfigVendor.mk
