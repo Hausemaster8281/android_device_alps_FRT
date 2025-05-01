@@ -7,7 +7,7 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
+include $(LOCAL_PATH)/AndroidProducts.mk
 # Inherit from device makefile.
 $(call inherit-product, device/alps/FRT/device.mk)
 

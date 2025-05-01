@@ -69,7 +69,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
-
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/lineage_FRT.mk
 #PRODUCT_COPY_FILES += \
 #    $(LOCAL_PATH)/vintf/manifest.xml:vendor/etc/vintf/manifest.xml
 
@@ -99,6 +100,10 @@ PRODUCT_SOONG_NAMESPACES += \
 # Properties
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml
+
+BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
+BOARD_SUPER_PARTITION_SIZE := 0
+BOARD_SUPER_PARTITION_GROUPS :=
 
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
