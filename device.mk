@@ -71,14 +71,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_FRT.mk
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/vintf/manifest.xml:vendor/etc/vintf/manifest.xml
-
 # Radio
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5 \
     android.hardware.radio.config@1.2
-
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.enableswap \
@@ -111,8 +109,5 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := false
 PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
 BOARD_SEPOLICY_VERS := 202404
 FCM_VERSION := 5
-# Define POLICYVERS and SEPOLICY_VERSION
-#POLICYVERS := 202404
 SEPOLICY_VERSION := 202404
-# Inherit the proprietary files
 $(call inherit-product, vendor/alps/FRT/FRT-vendor.mk)

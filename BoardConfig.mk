@@ -12,13 +12,11 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
-#BOARD_SEPOLICY_VERS := 29.0
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 PRODUCT_ENFORCE_VINTF_MANIFEST := false
 PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
 
 # Architecture (32-bit ARMv8-A)
-# For 32-bit userspace with 64-bit binder
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := armeabi-v7a
@@ -59,40 +57,13 @@ TARGET_KERNEL_HEADER_ARCH := arm
 #TARGET_FORCE_PREBUILT_KERNEL := false
 
 # Use kernel source
-# Kernel source path
 TARGET_KERNEL_SOURCE := kernel/alps/FRT
-# Defconfig name (must match defconfig file in arch/arm/configs/)
 TARGET_KERNEL_CONFIG := FRT_defconfig
-# Kernel image output name
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-# Use GCC, not Clang
 TARGET_KERNEL_CLANG_COMPILE := false
-# Toolchain path (must end in slash)
 KERNEL_TOOLCHAIN := /media/hausemaster8281/1599b391-ccbc-44f7-827b-1515f7a8a7ab/android/lineage/kernel/alps/FRT/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin
-# Toolchain prefix (no path, just the binary prefix)
 KERNEL_TOOLCHAIN_PREFIX := arm-none-eabi-
-# Tell Soong what prefix to use
 TARGET_KERNEL_TOOLCHAIN := $(KERNEL_TOOLCHAIN)$(KERNEL_TOOLCHAIN_PREFIX)
-
-#ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
-#    TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/zImage-dtb
-#    BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-#    BOARD_INCLUDE_DTB_IN_BOOTIMG := true#
-#
-#    # Fake install dtb.img to prevent build failure
-#    INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtb.img
-#    PRODUCT_COPY_FILES += \
-#        $(DEVICE_PATH)/prebuilts/dtb.img:dtb.img
-#endif
-
-
-# DTBO image for devices with separate DTBO partition
-#BOARD_KERNEL_SEPARATED_DTBO := true
-#TARGET_PREBUILT_DTBO := $(DEVICE_PATH)/prebuilt/dtbo.img
-#INSTALLED_DTBIMAGE_TARGET := $(PRODUCT_OUT)/dtbo.img
-#PRODUCT_COPY_FILES += \
-#    $(DEVICE_PATH)/prebuilt/dtbo.img:dtbo.img
-
 
 # Partitions
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -119,10 +90,6 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 159383552        # 0x9800000 (optional but li
 BOARD_FLASH_BLOCK_SIZE := 131072                    # 0x20000 (already present, just confirming)
 
 # Filesystem Types
-BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_DATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_VENDOR := vendor
 
 
@@ -146,10 +113,6 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 BOARD_VNDK_VERSION := current
-
-# SELinux
-#BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-#SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 
 # Verified Boot
 BOARD_AVB_ENABLE := false  # Disable for older devices
