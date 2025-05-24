@@ -75,8 +75,6 @@ PRODUCT_MAKEFILES := \
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5 \
     android.hardware.radio.config@1.2
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.enableswap \
@@ -110,4 +108,11 @@ PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
 BOARD_SEPOLICY_VERS := 202404
 FCM_VERSION := 5
 SEPOLICY_VERSION := 202404
+# temp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko \
+    $(LOCAL_PATH)/prebuilt/modules.alias:system/lib/modules/modules.alias \
+    $(LOCAL_PATH)/prebuilt/modules.dep:system/lib/modules/modules.dep \
+    $(LOCAL_PATH)/prebuilt/modules.softdep:system/lib/modules/modules.softdep \
+    $(LOCAL_PATH)/prebuilt/xt_physdev.ko:system/lib/modules/xt_physdev.ko
 $(call inherit-product, vendor/alps/FRT/FRT-vendor.mk)
