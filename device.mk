@@ -115,4 +115,5 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/modules.dep:system/lib/modules/modules.dep \
     $(LOCAL_PATH)/prebuilt/modules.softdep:system/lib/modules/modules.softdep \
     $(LOCAL_PATH)/prebuilt/xt_physdev.ko:system/lib/modules/xt_physdev.ko
+
 $(call inherit-product, vendor/alps/FRT/FRT-vendor.mk)
