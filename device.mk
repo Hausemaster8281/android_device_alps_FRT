@@ -67,8 +67,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/prebuilt/odm.prop:vendor/odm/etc/build.prop
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_FRT.mk
 # Radio
@@ -97,17 +97,17 @@ PRODUCT_SOONG_NAMESPACES += \
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml
 
-BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
-BOARD_SUPER_PARTITION_SIZE := 0
-BOARD_SUPER_PARTITION_GROUPS :=
+#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
+#BOARD_SUPER_PARTITION_SIZE := 0
+#BOARD_SUPER_PARTITION_GROUPS :=
 
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-PRODUCT_ENFORCE_VINTF_MANIFEST := false
-PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
-BOARD_SEPOLICY_VERS := 202404
-FCM_VERSION := 5
-SEPOLICY_VERSION := 202404
+#PRODUCT_ENFORCE_VINTF_MANIFEST := false
+#PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
+#BOARD_SEPOLICY_VERS := 202404
+#FCM_VERSION := 5
+#SEPOLICY_VERSION := 202404
 # temp
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko \
