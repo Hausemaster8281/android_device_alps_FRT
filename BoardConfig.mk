@@ -18,7 +18,7 @@ PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
 
 # Architecture (32-bit ARMv8-A)
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := generic
