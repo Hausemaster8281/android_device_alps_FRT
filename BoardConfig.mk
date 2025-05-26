@@ -118,7 +118,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6737m
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-BOARD_VNDK_VERSION := current
+
 
 # Verified Boot
 BOARD_AVB_ENABLE := false  # Disable for older devices
