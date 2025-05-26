@@ -6,7 +6,7 @@
 
 DEVICE_PATH := device/alps/FRT
 
-# Architecture (32-bit ARMv8-A)
+# Architecture (arm32_binder64 device)
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
