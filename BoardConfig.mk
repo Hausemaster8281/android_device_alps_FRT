@@ -62,9 +62,9 @@ TARGET_NEEDS_DTBOIMAGE := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo/dtbo.img
 #=BOARD_ROOT_EXTRA_SYMLINKS := vendor
 
-# A/B-related flags — explicitly disable
+
+# A/B-related flags — explicitly disable as Device is System-as-Root
 AB_OTA_UPDATER := false
-#TARGET_NO_AB := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216         # 0x1000000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 19095552     # 0x1230000
