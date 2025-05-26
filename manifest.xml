@@ -1,3 +1,2 @@
 <manifest version="1.0" type="device" target-level="5"> 
-    <fcm_version>5</fcm_version>
 </manifest>
