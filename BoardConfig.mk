@@ -18,7 +18,7 @@ TARGET_CPU_VARIANT_RUNTIME := cortex-a53
 TARGET_BOOTLOADER_BOARD_NAME := mt6737m
 TARGET_NO_BOOTLOADER := true
 
-# Boot Image
+# Boot Image build arguments
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 buildvariant=userdebug
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
