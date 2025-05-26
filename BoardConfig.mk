@@ -77,6 +77,8 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 # Filesystem Types
+
+# Generate vendor image
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
