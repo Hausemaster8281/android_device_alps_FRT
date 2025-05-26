@@ -1,14 +1,3 @@
 <manifest version="1.0" type="device" target-level="5"> 
     <fcm_version>5</fcm_version>
-<!--
-    <sepolicy>
-        <version>202404</version>
-    </sepolicy>
-    <vendor-ndk>
-        <version>29</version>
-    </vendor-ndk>
-    <system-sdk>
-        <version>29</version>
-    </system-sdk>
--->
 </manifest>
