@@ -101,4 +101,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/modules.softdep:system/lib/modules/modules.softdep \
     $(LOCAL_PATH)/prebuilt/xt_physdev.ko:system/lib/modules/xt_physdev.ko
 
+#Declare FCM version
+FCM_VERSION := 5
+
 $(call inherit-product, vendor/alps/FRT/FRT-vendor.mk)
