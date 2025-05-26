@@ -91,11 +91,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # Properties
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/framework_compatibility_matrix.xml
-
-#BOARD_BUILD_SUPER_IMAGE_BY_DEFAULT := false
-#BOARD_SUPER_PARTITION_SIZE := 0
-#BOARD_SUPER_PARTITION_GROUPS :=
-
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 #Copy missing prebuilts from kernel (Network specific files)
