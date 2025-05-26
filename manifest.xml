@@ -1,5 +1,5 @@
-<manifest version="2.0" type="device" target-level="5">
-    <fcm_version>5</fcm_version> <!-- Android 10 shipped devices = FCM 5 -->
+<manifest version="1.0" type="device" target-level="5"> 
+    <fcm_version>5</fcm_version>
     <sepolicy>
         <version>202404</version>
     </sepolicy>
