@@ -104,6 +104,7 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 #FCM_VERSION := 5
 #SEPOLICY_VERSION := 202404
 # temp
+#Copy missing prebuilts from kernel (Network specific files)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko \
     $(LOCAL_PATH)/prebuilt/modules.alias:system/lib/modules/modules.alias \
