@@ -51,7 +51,6 @@ TARGET_KERNEL_CLANG_COMPILE := false
 KERNEL_TOOLCHAIN := /media/hausemaster8281/1599b391-ccbc-44f7-827b-1515f7a8a7ab/android/lineage/kernel/alps/FRT/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin
 KERNEL_TOOLCHAIN_PREFIX := arm-none-eabi-
 TARGET_KERNEL_TOOLCHAIN := $(KERNEL_TOOLCHAIN)$(KERNEL_TOOLCHAIN_PREFIX)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # Partitions
 #BOARD_HAS_NO_SELECT_BUTTON := true
