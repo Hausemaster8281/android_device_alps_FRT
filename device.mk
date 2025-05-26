@@ -98,12 +98,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
 
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-#PRODUCT_ENFORCE_VINTF_MANIFEST := false
-#PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
-#BOARD_SEPOLICY_VERS := 202404
-#FCM_VERSION := 5
-#SEPOLICY_VERSION := 202404
-# temp
 #Copy missing prebuilts from kernel (Network specific files)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/br_netfilter.ko:system/lib/modules/br_netfilter.ko \
