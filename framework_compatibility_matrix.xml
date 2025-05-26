@@ -289,31 +289,4 @@
             <instance>eSE1</instance>
         </interface>
     </hal>
-    <!-- Kernel requirements for FCM 5 
-    <kernel version="4.9.141">
-        <config>
-            <key>CONFIG_ANDROID</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_CGROUP_SCHED</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_ANDROID_PARANOID_NETWORK</key>
-            <value type="tristate">y</value>
-        </config>
-        Add more FCM5-mandated configs as needed
-    </kernel>
--->
-    <!-- SEPolicy 
-    <sepolicy>
-        <version>202404</version>
-        <kernel-sepolicy-version>30</kernel-sepolicy-version>
-    </sepolicy>
-    <framework>
-        <version>5.0</version>
-         Other framework settings
-    </framework>
--->
 </compatibility-matrix>
