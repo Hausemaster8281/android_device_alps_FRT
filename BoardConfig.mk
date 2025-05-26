@@ -60,7 +60,6 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_NEEDS_DTBOIMAGE := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/dtbo/dtbo.img
-#=BOARD_ROOT_EXTRA_SYMLINKS := vendor
 
 
 # A/B-related flags — explicitly disable as Device is System-as-Root
