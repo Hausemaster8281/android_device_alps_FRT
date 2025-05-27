@@ -131,5 +131,8 @@ PRODUCT_ENFORCE_VINTF_MANIFEST := false
 PRODUCT_IGNORE_VINTF_VERSION_CHECK := true
 SELINUX_IGNORE_NEVERALLOWS := true
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Inherit vendor
 include vendor/alps/FRT/BoardConfigVendor.mk
